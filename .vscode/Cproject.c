@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 // Function Declaration
 void menu(int n, char a, char b);
@@ -37,15 +38,19 @@ int main()
 
 
     printf("\n\t\tBINARY VALUES FOR TWO INPUTS\n");
-    printf("\nEnter '1' for true and '0' for false: ");
-    scanf(" %c", &a);
-    scanf(" %c", &b);
-
-    if (a != '1' && a != '0' && b != '1' && b != '0')
-    {
-        printf("\nInvalid inputs! Please enter '1' for true and '0' for false.\n");
-        return 1; // Exit the program when an invalid input
+    int validInput = 0;
+    
+    while (!validInput) {
+        scanf(" %c %c", &a, &b);
+        
+        if ((a == '0' || a == '1') && (b == '0' || b == '1')) {
+            validInput = 1;
+        } else {
+            printf("\nInvalid inputs! Please enter '1' for true and '0' for false.\n");
+            while (getchar() != '\n'); // Clear the input buffer
+        }
     }
+
 
 
     menu(n, a, b);
@@ -148,13 +153,14 @@ int NOT(char a)
 {
     if (a == '1')
    {   
-        printf("LOGICAL CONCLUSION IS\n");
-        printf("TRUE= 1\n");
+        printf("LOGICAL CONCLUSION for first binary input is\n");
+        printf("FALSE= 0\n");
+       
     }
     else
     {   
-        printf("LOGICAL CONCLUSION IS\n");
-        printf("FALSE= 0\n");
+        printf("LOGICAL CONCLUSION for first binary input is\n");
+        printf("TRUE= 1\n");
     }
     return 0;
 }
