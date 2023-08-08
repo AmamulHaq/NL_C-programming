@@ -1,132 +1,190 @@
 #include <stdio.h>
 
-int menu(char a, char b);
-int conjunction(char a, char b);
-int disjunction(char a, char b);
-int conditional(char a, char b);
-int biconditional(char a, char b);
+// Function Declaration
+void menu(int n, char a, char b);
+int AND(char a, char b);
+int OR(char a, char b);
+int NAND(char a, char b);
+int NOR(char a, char b);
+int NOT(char a);
+int EX_OR(char a, char b);
+int EX_NOR(char a, char b);
 
 int main()
 {
     char a, b;
-    printf("Enter t for true and f for false: ");
+    int n; // Declare the variable n here
+
+    printf("\t\tLOGICAL OPERATIONS\t\t\t\t\n");
+    printf("\n\tKNOW THE OUTPUT OF TWO STATEMENTS.\t\t\t\n");
+
+    printf("\nSelect any of the operators:\n");
+    printf("1. Conjunction (AND)\n");
+    printf("2. Disjunction (OR)\n");
+    printf("3. NAND\n");
+    printf("4. NOR\n");
+    printf("5. Negation (NOT)\n");
+    printf("6. Exclusive OR (EX_OR)\n");
+    printf("7. Exclusive NOR (EX_NOR)\n");
+
+    scanf("%d", &n);
+    
+    if (n < 1 || n > 7)
+    {
+        printf("\nInvalid choice! Please select a valid option (1 to 7).\n");
+        return 1; // Exit the program when an invalid input
+    }
+
+
+    printf("\n\t\tBINARY VALUES FOR TWO INPUTS\n");
+    printf("\nEnter '1' for true and '0' for false: ");
     scanf(" %c", &a);
     scanf(" %c", &b);
-    printf("Enter your choice: ");
-    menu(a, b);
+
+    if (a != '1' && a != '0' && b != '1' && b != '0')
+    {
+        printf("\nInvalid inputs! Please enter '1' for true and '0' for false.\n");
+        return 1; // Exit the program when an invalid input
+    }
+
+
+    menu(n, a, b);
+
     return 0;
 }
 
-int menu(char a, char b)
+void menu(int n, char a, char b)
 {
-    int ch;
-    printf("Enter 1.Conjunction 2.Disjunction 3.Conditional 4.Biconditional: ");
-    scanf("%d", &ch);
-    switch (ch)
+    switch (n)
     {
     case 1:
-        conjunction(a, b);
+        AND(a, b);
         break;
     case 2:
-        disjunction(a, b);
+        OR(a, b);
         break;
     case 3:
-        conditional(a, b);
+        NAND(a, b);
         break;
     case 4:
-        biconditional(a, b);
+        NOR(a, b);
+        break;
+    case 5:
+        NOT(a);
+        break;
+    case 6:
+        EX_OR(a, b);
+        break;
+    case 7:
+        EX_NOR(a, b);
         break;
     default:
-        printf("Invalid choice! Please select a valid option.\n");
-        menu(a, b);
+        printf("Invalid choice! Please select a valid option (1 to 7).\n");
         break;
     }
-    return 0;
 }
 
-int conjunction(char a, char b)
+int AND(char a, char b)
 {
-    if (a == 't')
-    {
-        if (b == 't')
-        {
-            printf("true\n");
-        }
-        else
-        {
-            printf("false\n");
-        }
+    if (a == '1' && b == '1')
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("TRUE= 1\n");
     }
     else
-    {
-        printf("false\n");
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("FALSE= 0\n");
     }
     return 0;
 }
 
-int disjunction(char a, char b)
+int OR(char a, char b)
 {
-    if (a == 't')
-    {
-        printf("true\n");
+    if (a == '1' || b == '1')
+     {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("TRUE= 1\n");
     }
     else
-    {
-        if (b == 't')
-        {
-            printf("true\n");
-        }
-        else
-        {
-            printf("false\n");
-        }
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("FALSE= 0\n");
     }
     return 0;
 }
 
-int conditional(char a, char b)
+int NAND(char a, char b)
 {
-    if (a == 't')
-    {
-        if (b == 't')
-        {
-            printf("true\n");
-        }
-        else
-        {
-            printf("false\n");
-        }
+    if (!(a == '1' && b == '1'))
+   {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("TRUE= 1\n");
     }
     else
-    {
-        printf("true\n");
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("FALSE= 0\n");
     }
     return 0;
 }
 
-int biconditional(char a, char b)
+int NOR(char a, char b)
 {
-    if (a == 't')
-    {
-        if (b == 't')
-        {
-            printf("true\n");
-        }
-        else
-        {
-            printf("false\n");
-        }
+    if (!(a == '1' || b == '1'))
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("TRUE= 1\n");
     }
     else
-    {
-        if (b == 't')
-        {
-            printf("false\n");
-        }
-        else
-        {
-            printf("true\n");
-        }
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("FALSE= 0\n");
+    }
+    return 0;
+}
+
+int NOT(char a)
+{
+    if (a == '1')
+   {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("TRUE= 1\n");
+    }
+    else
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("FALSE= 0\n");
+    }
+    return 0;
+}
+
+int EX_OR(char a, char b)
+{
+    if ((a == '1' || b == '1') && !(a == '1' && b == '1'))
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("TRUE= 1\n");
+    }
+    else
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("FALSE= 0\n");
+    }
+    return 0;
+}
+
+int EX_NOR(char a, char b)
+{
+    if ((a == '1' && b == '1') || !(a == '1' || b == '1'))
+   {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("TRUE= 1\n");
+    }
+    else
+    {   
+        printf("LOGICAL CONCLUSION IS\n");
+        printf("FALSE= 0\n");
     }
     return 0;
 }
