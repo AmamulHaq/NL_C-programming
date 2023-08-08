@@ -1,0 +1,63 @@
+I LOVE PLAYING VOLLYBALL
+Raksha is my Best Friend and Ritu is my Room Partner, All are my good friends.
+TRUTH TABLE OF LOGIC GATES
+
+AND Truth Table:
+  A   |   B   | Output
+-----------------------
+  0   |   0   |   0   
+  0   |   1   |   0   
+  1   |   0   |   0   
+  1   |   1   |   1   
+
+
+OR Truth Table:
+  A   |   B   | Output
+-----------------------
+  0   |   0   |   0   
+  0   |   1   |   1   
+  1   |   0   |   1   
+  1   |   1   |   1   
+
+
+NAND Truth Table:
+  A   |   B   | Output
+-----------------------
+  0   |   0   |   1   
+  0   |   1   |   1   
+  1   |   0   |   1   
+  1   |   1   |   0   
+
+
+NOR Truth Table:
+  A   |   B   | Output
+-----------------------
+  0   |   0   |   1   
+  0   |   1   |   0   
+  1   |   0   |   0   
+  1   |   1   |   0   
+
+
+NOT Truth Table:
+  A   | Output
+----------------
+  0   |   1   
+  1   |   0   
+
+
+EX-OR Truth Table:
+  A   |   B   | Output
+-----------------------
+  0   |   0   |   0   
+  0   |   1   |   1   
+  1   |   0   |   1   
+  1   |   1   |   0   
+  
+
+EX-NOR Truth Table:
+  A   |   B   | Output
+-----------------------
+  0   |   0   |   1   
+  0   |   1   |   0   
+  1   |   0   |   0   
+  1   |   1   |   1
