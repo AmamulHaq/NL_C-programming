@@ -37,20 +37,16 @@ int main()
     }
 
 
-    printf("\n\t\tBINARY VALUES FOR TWO INPUTS\n");
-    int validInput = 0;
-    
-    while (!validInput) {
-        scanf(" %c %c", &a, &b);
-        
-        if ((a == '0' || a == '1') && (b == '0' || b == '1')) {
-            validInput = 1;
-        } else {
-            printf("\nInvalid inputs! Please enter '1' for true and '0' for false.\n");
-            while (getchar() != '\n'); // Clear the input buffer
-        }
-    }
+    printf("\n\tBINARY VALUES FOR TWO INPUTS i.e A and B\n");
+    printf("\nEnter '1' for true and '0' for false: ");
+    scanf(" %c", &a);
+    scanf(" %c", &b);
 
+    if (a != '1' && a != '0' && b != '1' && b != '0')
+    {
+        printf("\nInvalid inputs! Please enter '1' for true and '0' for false.\n");
+        return 1; // Exit the program when an invalid input
+    }
 
 
     menu(n, a, b);

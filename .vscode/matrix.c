@@ -5,7 +5,8 @@ int main()
     int a, b, c, d;
     int m[10][10], n[10][10], sum[10][10] ,sub[10][10], product[10][10];
 
-    printf("Enter number of rows and columns of the first matrix:\n");
+    printf("\n\n\t\tOPERATIONS OF TWO DIFFERENT MATRICES\n");
+    printf("\nEnter number of rows and columns of the first matrix:\n");
     scanf("%d%d", &a, &b);
 
     // Input for the first matrix
