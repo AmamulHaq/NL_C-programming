@@ -21,7 +21,7 @@ int main()
     char a, b;
     int n; // Declare the variable n here
 	label:
-    printf("\t__-**LOGICAL OPERATIONS*-__\n");
+    printf("\t__-*****LOGICAL OPERATIONS*****-__\n");
     printf("\n\t*KNOW THE OUTPUT OF TWO STATEMENTS*\t\t\t\n");
 
     printf("\nSelect any (1to7) of the operators:\n\n");
