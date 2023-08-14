@@ -21,7 +21,7 @@ int main()
     char a, b;
     int n; // Declare the variable n here
 	label:
-    printf("\t__-*****LOGICAL OPERATIONS*****-__\n");
+    printf("\t_-**LOGICAL OPERATIONS**-_\n");
     printf("\n\t*KNOW THE OUTPUT OF TWO STATEMENTS*\t\t\t\n");
 
     printf("\nSelect any (1to7) of the operators:\n\n");
@@ -58,7 +58,7 @@ int main()
         "  0   |   1   |   0   ",
         "  1   |   0   |   0   ",
         "  1   |   1   |   1   ",
-        " ___________________  "
+        " _______  "
 
     };
 
@@ -67,7 +67,7 @@ int main()
         "  0   |   1   |   1   ",
         "  1   |   0   |   1   ",
         "  1   |   1   |   1   ",
-        " ___________________  "
+        " _______  "
     };
 
     const char* nandRows[] = {
@@ -75,7 +75,7 @@ int main()
         "  0   |   1   |   1   ",
         "  1   |   0   |   1   ",
         "  1   |   1   |   0   ",
-        " ___________________  "
+        " _______  "
     };
 
     const char* norRows[] = {
@@ -83,7 +83,7 @@ int main()
         "  0   |   1   |   0   ",
         "  1   |   0   |   0   ",
         "  1   |   1   |   0   ",
-        " ___________________  "
+        " _______  "
     };
 
     const char* notRows[] = {
@@ -99,7 +99,7 @@ int main()
         "  0   |   1   |   1   ",
         "  1   |   0   |   1   ",
         "  1   |   1   |   0   ",
-        " ___________________  "
+        " _______  "
     };
 
     const char* xnorRows[] = {
@@ -107,7 +107,7 @@ int main()
         "  0   |   1   |   0   ",
         "  1   |   0   |   0   ",
         "  1   |   1   |   1   ",
-        " ___________________  "
+        " _______  "
     };
     
     int choice;

@@ -1,25 +1,287 @@
 #include <stdio.h>
-#include <math.h>
-int square(int a);
-int circle(int r);
-int rectangle(int a,int b);
-int main(){
-int a,r,b;
-printf("Enter length a, breadth b and radius r:");
-scanf("%d%d%d",&a,&b,&r);
 
-square(a);
-circle(r);
-rectangle(a,b);
+// Function Declarations
+void menu(int n, char a, char b, const char* rows[]);
+int AND(char a, char b, const char* gateName, const char* rows[]);
+int OR(char a, char b, const char* gateName, const char* rows[]);
+int NAND(char a, char b, const char* gateName, const char* rows[]);
+int NOR(char a, char b, const char* gateName, const char* rows[]);
+int NOT(char a, char b, const char* gateName, const char* rows[]);
+int EX_OR(char a, char b, const char* gateName, const char* rows[]);
+int EX_NOR(char a, char b, const char* gateName, const char* rows[]);
+void TruthTable(const char* gateName, const char* rows[])
+{
+    printf("%s Truth Table:\n  A   |   B   | Output   \n --------------------\n", gateName);
+    for (int i = 0; i < 5; i++) {
+        printf("%s\n", rows[i]);
+    }
+    printf("\n");
+}
 
-return 0;}
+int main()
+{
+    char a, b;
+    int n;
 
-int rectangle(int a,int b){
-printf("Area of rectangle is :%d",a*b);}
+label:
+    printf("\t_-*LOGICAL OPERATIONS*-_\n");
+    printf("\n\t*KNOW THE OUTPUT OF TWO STATEMENTS*\t\t\t\n");
 
-int circle(int r){
-printf("Area of circle is :%f",3.1415*r);}
+    printf("\nSelect any (1 to 7) of the operators:\n\n");
+    printf("1. Conjunction (AND)\n");
+    printf("2. Disjunction (OR)\n");
+    printf("3. NAND\n");
+    printf("4. NOR\n");
+    printf("5. Negation (NOT)\n");
+    printf("6. Exclusive OR (EX_OR)\n");
+    printf("7. Exclusive NOR (EX_NOR)\n\n");
 
-int square(int a){
-printf("Area of square is :%d",a*a);}
+    scanf("%d", &n);
 
+    if (n < 1 || n > 7)
+    {
+        printf("\nInvalid choice! Please select a valid operator (1 to 7).\n");
+        return 1; // Exit the program on invalid input
+    }
+
+    printf("\n\tBINARY VALUES FOR TWO INPUTS A & B\n");
+    printf("\nEnter '1' for true and '0' for false:\n\n");
+    scanf(" %c", &a);
+    scanf(" %c", &b);
+
+    if (a != '1' && a != '0' && b != '1' && b != '0')
+    {
+        printf("\nInvalid inputs! Please enter '1' for true and '0' for false.\n");
+        return 1; // Exit the program on invalid input
+    }
+  {
+    const char* andRows[] = {
+        "  0   |   0   |   0   ",
+        "  0   |   1   |   0   ",
+        "  1   |   0   |   0   ",
+        "  1   |   1   |   1   ",
+        " ___  "
+    };
+
+    const char* orRows[] = {
+        "  0   |   0   |   0   ",
+        "  0   |   1   |   1   ",
+        "  1   |   0   |   1   ",
+        "  1   |   1   |   1   ",
+        " ___  "
+    };
+
+    const char* nandRows[] = {
+        "  0   |   0   |   1   ",
+        "  0   |   1   |   1   ",
+        "  1   |   0   |   1   ",
+        "  1   |   1   |   0   ",
+        " ___  "
+    };
+
+    const char* norRows[] = {
+        "  0   |   0   |   1   ",
+        "  0   |   1   |   0   ",
+        "  1   |   0   |   0   ",
+        "  1   |   1   |   0   ",
+        " ___  "
+    };
+
+    const char* notRows[] = {
+        " -------- |   A` |  B`",
+        " 0  |  0  |   1  |  1 ",
+        " 0  |  1  |   1  |  0 ",
+        " 1  |  0  |   0  |  1 ",
+        " 1  |  1  |   0  |  0 "
+    };
+
+    const char* xorRows[] = {
+        "  0   |   0   |   0   ",
+        "  0   |   1   |   1   ",
+        "  1   |   0   |   1   ",
+        "  1   |   1   |   0   ",
+        " ___  "
+    };
+
+    const char* xnorRows[] = {
+        "  0   |   0   |   1   ",
+        "  0   |   1   |   0   ",
+        "  1   |   0   |   0   ",
+        "  1   |   1   |   1   ",
+        " ___  "
+    };
+
+    int choice;
+    printf("\n\n\t TO KNOW TRUTH TABLE of logic gates :\n");
+    printf("1. AND\n2. OR\n3. NAND\n4. NOR\n5. NOT\n6. EX-OR\n7. EX-NOR\n");
+    printf("Enter your choice (1-7): ");
+    scanf("%d", &choice);
+
+ switch (choice) {
+    case 1:
+        TruthTable("AND", andRows);
+        menu(n, a, b, andRows);
+        break;
+    case 2:
+        TruthTable("OR", orRows);
+        menu(n, a, b, orRows);
+        break;
+    case 3:
+        TruthTable("NAND", nandRows);
+        menu(n, a, b, nandRows);
+        break;
+    case 4:
+        TruthTable("NOR", norRows);
+        menu(n, a, b, norRows);
+        break;
+    case 5:
+        TruthTable("NOT", notRows);
+        menu(n, a, b, notRows);
+        break;
+    case 6:
+        TruthTable("EX-OR", xorRows);
+        menu(n, a, b, xorRows);
+        break;
+    case 7:
+        TruthTable("EX-NOR", xnorRows);
+        menu(n, a, b, xnorRows);
+        break;
+    default:
+        printf("\nInvalid choice! Please enter a valid operator (1 to 7).\n");
+        return 1; // Exit the program on invalid input
+    }}
+    
+    goto label;
+    return 0;
+}
+
+
+
+int AND(char a, char b, const char* gateName, const char* rows[])
+{
+    if (a == '1' && b == '1') {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("TRUE = 1\n");
+    } else {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("FALSE = 0\n");
+    }
+    TruthTable("\nAND", rows);
+    return 0;
+}
+
+int OR(char a, char b, const char* gateName, const char* rows[])
+{
+    if (a == '1' || b == '1') {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("TRUE = 1\n");
+    } else {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("FALSE = 0\n");
+    }
+    TruthTable("\nOR", rows);
+    return 0;
+}
+
+int NAND(char a, char b, const char* gateName, const char* rows[])
+{
+    if (!(a == '1' && b == '1')) {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("TRUE = 1\n");
+    } else {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("FALSE = 0\n");
+    }
+    TruthTable("\nNAND", rows);
+    return 0;
+}
+
+int NOR(char a, char b, const char* gateName, const char* rows[])
+{
+    if (!(a == '1' || b == '1')) {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("TRUE = 1\n");
+    } else {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("FALSE = 0\n");
+    }
+    TruthTable("\nNOR", rows);
+    return 0;
+}
+
+int NOT(char a, char b, const char* gateName, const char* rows[])
+{
+    if (a == '1') {
+        printf("The NEGATION of A is\n");
+        printf("FALSE = 0\n");
+    } else {
+        printf("The NEGATION of A is\n");
+        printf("TRUE = 1\n");
+    }
+    if (b == '1') {
+        printf("The NEGATION of B is\n");
+        printf("FALSE = 0\n");
+    } else {
+        printf("The NEGATION of B is\n");
+        printf("TRUE = 1\n");
+    }
+    TruthTable("\nNOT", rows);
+    return 0;
+}
+
+int EX_OR(char a, char b, const char* gateName, const char* rows[])
+{
+    if ((a == '1' || b == '1') && !(a == '1' && b == '1')) {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("TRUE = 1\n");
+    } else {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("FALSE = 0\n");
+    }
+    TruthTable("\nEX-OR", rows);
+    return 0;
+}
+
+int EX_NOR(char a, char b, const char* gateName, const char* rows[])
+{
+    if ((a == '1' && b == '1') || !(a == '1' || b == '1')) {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("TRUE = 1\n");
+    } else {
+        printf("\n\n\t*OUTPUT*\n\nLOGICAL CONCLUSION IS\n");
+        printf("FALSE = 0\n");
+    }
+    TruthTable("\nEX-NOR", rows);
+    return 0;
+}
+
+void menu(int n, char a, char b, const char* rows[])
+{
+    switch (n)
+    {
+        case 1:
+            AND(a, b, "AND", rows);
+            break;
+        case 2:
+            OR(a, b, "OR", rows);
+            break;
+        case 3:
+            NAND(a, b, "NAND", rows);
+            break;
+        case 4:
+            NOR(a, b, "NOR", rows);
+            break;
+        case 5:
+            NOT(a, b, "NOT", rows);
+            break;
+        case 6:
+            EX_OR(a, b, "EX-OR", rows);
+            break;
+        case 7:
+            EX_NOR(a, b, "EX-NOR", rows);
+            break;
+        default:
+            printf("Invalid choice! Please select a valid option (1 to 7).\n");
+            break;
+    }
+}
