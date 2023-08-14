@@ -21,6 +21,7 @@ int main()
     char a, b;
     int n; // Declare the variable n here
 	label:
+    label3:
     printf("\t_-**LOGICAL OPERATIONS**-_\n");
     printf("\n\t*KNOW THE OUTPUT OF TWO STATEMENTS*\t\t\t\n");
 
@@ -32,14 +33,18 @@ int main()
     printf("5. Negation (NOT)\n");
     printf("6. Exclusive OR (EX_OR)\n");
     printf("7. Exclusive NOR (EX_NOR)\n\n");
+    
 
     scanf("%d", &n);
     
     if (n < 1 || n > 7)
     {   printf("\nInvalid choice! Please select a valid operator (1to7).\n");
-        return 1; // Exit the program when an invalid input
+        goto label3;
+        return 0; // Exit the program when an invalid input
     }
-
+    
+    label1:
+    
     printf("\n\tBINARY VALUES FOR TWO INPUTS A & B\n");
     printf("\nEnter '1' for true and '0' for false:\n\n");
     scanf(" %c", &a);
@@ -47,7 +52,8 @@ int main()
 
     if (a != '1' && a != '0' && b != '1' && b != '0')
     {   printf("\nInvalid inputs! Please enter '1' for true and '0' for false.\n");
-        return 1; // Exit the program when an invalid input
+        goto label1;
+        return 0;// Exit the program when an invalid input
     }
     
     menu(n, a, b);
@@ -110,7 +116,10 @@ int main()
         " _______  "
     };
     
+    
+    
     int choice;
+    label2:
     printf("\n\n\t TO KNOW TRUTH TABLE of logic gates :\n");
     printf("1. AND\n2. OR\n3. NAND\n4. NOR\n5. NOT\n6. EX-OR\n7. EX-NOR\n");
     printf("Enter your choice (1-7): ");
@@ -131,10 +140,11 @@ int main()
     } else if (choice == 7) {
         TruthTable("\nEX-NOR", xnorRows);
     } else {printf("\nInvalid choice! Please enter a valid operator(1to7).\n");
-           return 1; // Exit the program when an invalid input
-    }}
-    goto label;
-    return 0;
+    goto label2;
+    return 0;}}    // Exit the program when an invalid input
+    
+ goto label;
+ return 0;
 }
 
 void menu(int n, char a, char b)
